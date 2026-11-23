@@ -1,6 +1,19 @@
+<p align="center">
+  <img src="readme-banner.png" width="920" alt="Release Receipt. Check a Mac app ZIP before release · arm64  +  x86_64 · Example universal Mac app.">
+</p>
+
 # Release Receipt
 
 Check a Mac app ZIP before publishing or installing it. Release Receipt computes its SHA-256, can compare it with a trusted value, and reads each bundled app executable’s Mach-O architecture table directly from the archive.
+
+## At a glance
+
+| Task | How |
+| --- | --- |
+| **Inspect a release ZIP** | Read its SHA-256 and the architectures of bundled app executables. |
+| **Verify a known hash** | Use `--expected` for one hash or `--checksums` for a checksum file. |
+| **Require a universal app** | Use `--require-universal` to check for Apple silicon and Intel support. |
+| **Download** | [Get receipt.py](https://github.com/muddgrrrl/Release-Receipt/releases/latest/download/receipt.py) |
 
 ## Run
 
