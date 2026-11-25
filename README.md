@@ -36,3 +36,22 @@ python3 -m unittest -v
 ```
 
 [MIT license](LICENSE)
+
+## Inspect a build before publishing
+
+Generate the checksum from the ZIP you intend to publish, then verify the same file
+against that manifest. Run these commands from the directory containing
+`MyApp-macOS.zip`.
+
+```sh
+shasum -a 256 MyApp-macOS.zip > SHA256SUMS.txt
+python3 receipt.py MyApp-macOS.zip --checksums SHA256SUMS.txt --require-universal
+```
+
+```mermaid
+flowchart LR
+    A[macOS app ZIP] --> B[Compute SHA-256]
+    B --> C[Compare expected digest if supplied]
+    C --> D[Read app plist and Mach-O headers]
+    D --> E[Report architecture and checksum]
+```
